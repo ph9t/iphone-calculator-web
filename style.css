@@ -1,0 +1,89 @@
+:root {
+  --calc-orange: #ff9500;
+  --calc-dark-grey: #1c1c1c;
+  --calc-light-grey: #d4d4d2;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Open Sans', Verdana, sans-serif;
+
+  /* temp */
+  background-color: #000;
+}
+
+.screen {
+  width: max-content;
+}
+
+.display {
+  color: white;
+
+  width: 100%;
+  height: 180px;
+
+  position: relative;
+}
+
+.display .value {
+  font-size: 3rem;
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.buttons {
+  width: max-content;
+}
+
+.button-row {
+  width: max-content;
+  margin-bottom: 10px;
+
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  background-color: var(--calc-dark-grey);
+  color: white;
+  font-weight: 800;
+
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.buttons > :first-of-type .button {
+  background-color: var(--calc-light-grey);
+  color: black;
+}
+
+.buttons .button-row > :last-of-type {
+  background-color: var(--calc-orange);
+  color: white;
+}
+
+.button:hover,
+.buttons > :first-of-type .button:hover,
+.buttons .button-row > :last-of-type:hover {
+  background-color: white;
+}
+
+.button.zero {
+  height: auto;
+  width: 110px;
+  border-radius: 50px;
+}
