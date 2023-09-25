@@ -37,6 +37,12 @@ const arithmeticOperations = {
   divide: (x, y) => Number(x) / Number(y),
 }
 
+const expression = {
+  firstOperand: 0,
+  secondOperand: 0,
+  operation: null,
+}
+
 const buttons = document.querySelector('.buttons')
 
 for (let buttonDescRow of buttonDescs) {
