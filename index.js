@@ -45,6 +45,8 @@ const expression = {
 
 const buttons = document.querySelector('.buttons')
 
+let currentValueDisplay = '0'
+
 for (let buttonDescRow of buttonDescs) {
   const buttonRow = document.createElement('div')
   buttonRow.classList.add('button-row')
@@ -60,6 +62,21 @@ for (let buttonDescRow of buttonDescs) {
 
     if (buttonDesc.name === 'zero') button.classList.add('zero')
 
+    button.addEventListener(
+      'click',
+      e => {
+        e.stopPropagation()
+
+        const buttonType = e.currentTarget.getAttribute('data-button-type')
+
+        if (buttonType === 'num') {
+          changeDisplay(e.target.textContent)
+          return
+        }
+      },
+      { capture: true }
+    )
+
     button.appendChild(span)
     buttonRow.appendChild(button)
   }
@@ -74,3 +91,12 @@ function operate(expression) {
   return op(expression.firstOperand, expression.secondOperand)
 }
 
+function changeDisplay(value) {
+  const displayValue = document.querySelector('.display .value')
+
+  if (currentValueDisplay === '0') {
+    currentValueDisplay = value
+  } else currentValueDisplay += value
+
+  displayValue.textContent = Number(currentValueDisplay).toLocaleString('en-US')
+}
