@@ -66,3 +66,11 @@ for (let buttonDescRow of buttonDescs) {
 
   buttons.appendChild(buttonRow)
 }
+
+function operate(expression) {
+  if (!expression.operation) return
+
+  const op = arithmeticOperations[expression.operation]
+  return op(expression.firstOperand, expression.secondOperand)
+}
+
