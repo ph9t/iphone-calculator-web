@@ -30,6 +30,13 @@ const buttonDescs = [
   ],
 ]
 
+const arithmeticOperations = {
+  add: (x, y) => Number(x) + Number(y),
+  subtract: (x, y) => Number(x) - Number(y),
+  multiply: (x, y) => Number(x) * Number(y),
+  divide: (x, y) => Number(x) / Number(y),
+}
+
 const buttons = document.querySelector('.buttons')
 
 for (let buttonDescRow of buttonDescs) {
